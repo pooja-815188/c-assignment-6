@@ -1,0 +1,18 @@
+#include <stdio.h>
+int main()
+{
+    int num, order, i;
+    printf("Enter any number: ");
+    scanf("%d", &num);
+    order = num - 1;
+    for(i=0; i<num; i++)
+    {
+        if((num>>i) & 1)
+        {
+            order = i;
+            break;
+        }
+    }
+
+    printf("Lowest order set bit in %d is %d", num, order);
+}
