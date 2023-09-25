@@ -1,0 +1,45 @@
+#include<stdio.h>
+int main()
+{
+    int row,col,i,j;
+    printf("enter a row and col\n");
+    scanf("%d %d",&row,&col);
+    int mat1[row][col];
+    int (*ptr1)[col]=mat1;
+    printf("enter a first matrix elemets\n");
+    for(i=0;i<row;i++)
+    {
+        for(j=0;j<col;j++)
+        {
+            scanf("%d",(*(ptr1+i)+j));
+        }
+    }
+    int mat2[row][col];
+    int (*ptr2)[col]=mat2;
+    printf("enter a second matrix elemets\n");
+    for(i=0;i<row;i++)
+    {
+        for(j=0;j<col;j++)
+        {
+            scanf("%d",(*(ptr2+i)+j));
+        }
+    }
+    int mat[row][col];
+    int (*ptr3)[col]=mat;
+    for(i=0;i<row;i++)
+    {
+        for(j=0;j<col;j++)
+        {
+            *(*(ptr3+i)+j)= *(*(ptr1+i)+j) + *(*(ptr2+i)+j);
+        }
+    }
+    printf("sum of two matrix\n");
+    for(i=0;i<row;i++)
+    {
+        for(j=0;j<col;j++)
+        {
+            printf("%d\t",*(*(ptr3+i)+j));
+        }
+        printf("\n");
+    }
+}
